@@ -9,20 +9,25 @@ app = Flask(__name__)
 csv_file = "./dataset/LR.csv"
 df = pd.read_csv(csv_file)
 
+
 # Check the structure and contents of the dataset
 def print_dataset_info():
     print(df.head())  # Print the first few rows to verify the column names and data
+
 
 # Extract the features (X) and target variable (y) from the dataset
 X = df[['X']]  # Correct column name to 'X'
 y = df['Y']    # Correct column name to 'Y'
 
+
 # Initialize and fit the linear regression model
 model = LinearRegression()
 model.fit(X, y)
 
+
 # Predictions using the trained model
 y_pred = model.predict(X)
+
 
 # Plot the dataset and the linear regression line
 plt.scatter(X, y, color='blue', label='Data')
@@ -33,9 +38,11 @@ plt.title('Linear Regression on LR Dataset')
 plt.legend()
 plt.show()
 
+
 @app.route('/')
 def hello_world():
     return 'Hello, World!'
+
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -48,6 +55,7 @@ def predict():
 
     # Return predictions
     return jsonify({'predictions': y_pred.tolist()})
+
 
 if __name__ == '__main__':
     print_dataset_info()  # Print dataset info when the script is run directly
