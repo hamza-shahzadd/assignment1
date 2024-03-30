@@ -52,7 +52,3 @@ def predict():
 if __name__ == '__main__':
     print_dataset_info()  # Print dataset info when the script is run directly
     app.run(debug=True)
-
-
-
-### push dev
