@@ -1,0 +1,14 @@
+name: Testing
+
+on:
+  pull_request:
+    branches:
+      - test
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      # Add steps to set up your testing environment and run tests
