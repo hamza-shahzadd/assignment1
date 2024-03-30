@@ -12,10 +12,10 @@ df = pd.read_csv(csv_file)
 
 # Check the structure and contents of the dataset
 def print_dataset_info():
-    print(df.head())  # Print the first few rows to verify the column names and data
+    print(df.head())  
 
 
-# Extract the features (X) and target variable (y) from the dataset
+# Extract the features 
 X = df[['X']]  # Correct column name to 'X'
 y = df['Y']    # Correct column name to 'Y'
 
@@ -48,7 +48,7 @@ def hello_world():
 def predict():
     # Get data from request
     data = request.json
-    X_new = pd.DataFrame(data['X'], columns=['X'])  # Assuming input data is in JSON format with 'X' key
+    X_new = pd.DataFrame(data['X'], columns=['X']) 
 
     # Make predictions
     y_pred = model.predict(X_new)
@@ -58,5 +58,5 @@ def predict():
 
 
 if __name__ == '__main__':
-    print_dataset_info()  # Print dataset info when the script is run directly
+    print_dataset_info()  # 
     app.run(debug=True)   # push
