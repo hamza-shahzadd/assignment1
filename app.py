@@ -10,7 +10,8 @@ csv_file = "./dataset/LR.csv"
 df = pd.read_csv(csv_file)
 
 # Check the structure and contents of the dataset
-print(df.head())  # Print the first few rows to verify the column names and data
+def print_dataset_info():
+    print(df.head())  # Print the first few rows to verify the column names and data
 
 # Extract the features (X) and target variable (y) from the dataset
 X = df[['X']]  # Correct column name to 'X'
@@ -49,4 +50,5 @@ def predict():
     return jsonify({'predictions': y_pred.tolist()})
 
 if __name__ == '__main__':
+    print_dataset_info()  # Print dataset info when the script is run directly
     app.run(debug=True)
